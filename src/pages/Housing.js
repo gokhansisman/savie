@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import HorizontalBar from "../components/HorizontalBar";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import Snackbar from "@mui/material/Snackbar";
 const Housing = () => {
   const [food, setFood] = React.useState(0);
   const [foodInput, setFoodInput] = React.useState(0);
@@ -30,8 +31,15 @@ const Housing = () => {
   const [holidaysSport, setholidaysSport] = React.useState(0);
   const [result_holidaysSport, result_set_holidaysSport] = React.useState(0);
 
-  const [kcal, setKcal] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
 
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   const handleChange = (event) => {
     setFood(event.target.value);
   };
@@ -43,6 +51,7 @@ const Housing = () => {
 
   function saveFood() {
     localStorage.setItem("food", result_food);
+    setOpen(true);
   }
   const calculatePharmaceuticals = () => {
     let _result_pharmaceuticals = (pharmaceuticals * 2.1) / 1000;
@@ -126,7 +135,7 @@ const Housing = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={result_food} _label="Kg CO2/day" />
+              <VerticalBar data={result_food} _label=" tonnes CO2/year" />
             </div>
           </div>
           <br />
@@ -162,7 +171,7 @@ const Housing = () => {
             <div>
               <HorizontalBar
                 data={result_pharmaceuticals}
-                _label="Kg CO2/day"
+                _label=" tonnes CO2/year"
               />
             </div>
           </div>
@@ -197,7 +206,10 @@ const Housing = () => {
               </Button>
             </div>
             <div>
-              <HorizontalBar data={result_techDevices} _label="Kg CO2/day" />
+              <HorizontalBar
+                data={result_techDevices}
+                _label=" tonnes CO2/year"
+              />
             </div>
           </div>
           <br />
@@ -233,7 +245,7 @@ const Housing = () => {
             <div>
               <HorizontalBar
                 data={result_furniture_books}
-                _label="Kg CO2/day"
+                _label=" tonnes CO2/year"
               />
             </div>
           </div>
@@ -271,11 +283,21 @@ const Housing = () => {
               </Button>
             </div>
             <div>
-              <HorizontalBar data={result_holidaysSport} _label="Kg CO2/day" />
+              <HorizontalBar
+                data={result_holidaysSport}
+                _label=" tonnes CO2/year"
+              />
             </div>
           </div>
         </div>
       </SideBar>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message="Saved"
+       
+      />
     </div>
   );
 };

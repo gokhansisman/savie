@@ -13,31 +13,31 @@ const options = {
   },
 };
 
-const GroupedBar = (data2) => {
+const GroupedBar2 = (data2) => {
   let data = {
     labels: ["CO2"],
     datasets: [
       {
-        label: "Nutrition",
-        data: [data2.nutrition],
+        label: "Food&Drink",
+        data: [data2.food],
         backgroundColor: "rgb(255, 99, 132)",
         stack: "Stack 0",
       },
       {
-        label: "Waste",
-        data: [data2.waste],
+        label: "Pharmaceuticals",
+        data: [data2.pharmaceuticals],
         backgroundColor: "rgb(54, 162, 235)",
         stack: "Stack 1",
       },
       {
-        label: "Energy",
-        data: [data2.energy],
+        label: "Technical Devices",
+        data: [data2.techDevices],
         backgroundColor: "rgb(75, 192, 192)",
         stack: "Stack 2",
       },
       {
-        label: "Vehicle",
-        data: [data2.vehicle],
+        label: "Furniture&Books",
+        data: [data2.furniture_books],
         backgroundColor: "rgb(320, 20, 192)",
         stack: "Stack 3",
       },
@@ -51,4 +51,4 @@ const GroupedBar = (data2) => {
   );
 };
 
-export default GroupedBar;
+export default GroupedBar2;
