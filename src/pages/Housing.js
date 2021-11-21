@@ -59,9 +59,11 @@ const Housing = () => {
   };
   function savePharmaceuticals() {
     localStorage.setItem("pharmaceuticals", result_pharmaceuticals);
+    setOpen(true);
   }
   function saveTechDevices() {
     localStorage.setItem("techDevices", result_techDevices);
+    setOpen(true);
   }
   const calculateTechDevices = () => {
     let _result_TechDevices = (techDevices * 1.86) / 1000;
@@ -69,6 +71,7 @@ const Housing = () => {
   };
   function saveFurniture_books() {
     localStorage.setItem("furniture_books", result_furniture_books);
+    setOpen(true);
   }
 
   const calculate_furniture_books = () => {
@@ -77,6 +80,7 @@ const Housing = () => {
   };
   function saveHolidaysSport() {
     localStorage.setItem("holidays_sport", result_holidaysSport);
+    setOpen(true);
   }
   const calculate_result_holidaysSport = () => {
     let _result_holidaysSport = (holidaysSport * 0.56) / 1000;
@@ -296,7 +300,6 @@ const Housing = () => {
         autoHideDuration={3000}
         onClose={handleClose}
         message="Saved"
-       
       />
     </div>
   );

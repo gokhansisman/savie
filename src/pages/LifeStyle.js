@@ -9,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
-
+import Snackbar from "@mui/material/Snackbar";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 const LifeStyle = () => {
@@ -26,6 +26,16 @@ const LifeStyle = () => {
   const [fuel, setFuel] = React.useState(0);
 
   const [result, setResult] = React.useState(0);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleChange = (event) => {
     setConsumption(event.target.value);
@@ -54,15 +64,19 @@ const LifeStyle = () => {
   }
   function saveNutrition() {
     localStorage.setItem("nutrition", result);
+    setOpen(true);
   }
   function saveTrash() {
     localStorage.setItem("waste", _trash);
+    setOpen(true);
   }
   function saveEnergy() {
     localStorage.setItem("energy", _energy);
+    setOpen(true);
   }
   function saveVehicle() {
     localStorage.setItem("vehicle", _vehicle);
+    setOpen(true);
   }
 
   return (
@@ -70,6 +84,12 @@ const LifeStyle = () => {
       <SideBar>
         <div style={{ marginTop: "60px", padding: "10px" }}>
           <h2>Living</h2>
+          <Snackbar
+            open={open}
+            autoHideDuration={3000}
+            onClose={handleClose}
+            message="Saved"
+          />
           <div className="nutrition-main-container">
             <h3>Nutrition</h3>
             <div className="lifestyle-main-container">
@@ -121,7 +141,7 @@ const LifeStyle = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={result} _label="Kg CO2/day"/>
+              <VerticalBar data={result} _label="Kg CO2/day" />
               <div>
                 <span>Tips</span>
               </div>
@@ -156,7 +176,7 @@ const LifeStyle = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={_trash} _label=" Kg CO2/year"/>
+              <VerticalBar data={_trash} _label=" Kg CO2/year" />
               <div>
                 <span>Tips</span>
               </div>
@@ -183,17 +203,14 @@ const LifeStyle = () => {
                 Calculate
               </Button>
               <Stack direction="row" spacing={1}>
-                <Chip
-                  label={`${_energy + "CO2"}`}
-                  variant="outlined"
-                />
+                <Chip label={`${_energy + "CO2"}`} variant="outlined" />
               </Stack>
               <Button variant="outlined" onClick={saveEnergy}>
                 Save
               </Button>
             </div>
             <div>
-              <VerticalBar data={_energy} _label=" Kg CO2/year"/>
+              <VerticalBar data={_energy} _label=" Kg CO2/year" />
               <div>
                 <span>Tips</span>
               </div>
@@ -249,10 +266,7 @@ const LifeStyle = () => {
                 Calculate
               </Button>
               <Stack direction="row" spacing={1}>
-                <Chip
-                  label={`${_vehicle + " CO2"}`}
-                  variant="outlined"
-                />
+                <Chip label={`${_vehicle + " CO2"}`} variant="outlined" />
               </Stack>
               <Button variant="outlined" onClick={saveVehicle}>
                 Save

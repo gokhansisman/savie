@@ -24,8 +24,9 @@ const MainPage = () => {
         <div style={{ marginTop: "60px", padding: "10px" }}>
           <h2>Welcome, {auth.firstName}!</h2>
           <h3>
-            Please, calculate and save your calculations. Than you will them
-            together in final analysis.
+            Please, calculate and save your calculations via sections
+            'Lifestyle' & 'Housing'.
+            <br /> Then you will see them together in the final analysis below.
           </h3>
           <h3 className="tip-header">Weekly Tips!</h3>
           <div className="tip-section">
