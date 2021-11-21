@@ -14,7 +14,6 @@ const options = {
 };
 
 const VerticalBar = (props) => {
-  console.log(props);
   let data = {
     labels: ["Carbon dioxide"],
     datasets: [

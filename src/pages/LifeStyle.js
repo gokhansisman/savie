@@ -121,7 +121,7 @@ const LifeStyle = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={result} _label="CO2 kg per day"/>
+              <VerticalBar data={result} _label="Kg CO2/day"/>
               <div>
                 <span>Tips</span>
               </div>
@@ -156,7 +156,7 @@ const LifeStyle = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={_trash} />
+              <VerticalBar data={_trash} _label=" Kg CO2/year"/>
               <div>
                 <span>Tips</span>
               </div>
@@ -167,7 +167,7 @@ const LifeStyle = () => {
             <h3>Energy Consumption</h3>
             <div className="lifestyle-main-container">
               <TextField
-                label="Energy consumption per day"
+                label="Energy consumption per year"
                 id="outlined-start-adornment"
                 value={energy}
                 onChange={(e) => setEnergy(e.target.value)}
@@ -184,7 +184,7 @@ const LifeStyle = () => {
               </Button>
               <Stack direction="row" spacing={1}>
                 <Chip
-                  label={`${_energy + " CO2 per year"}`}
+                  label={`${_energy + "CO2"}`}
                   variant="outlined"
                 />
               </Stack>
@@ -193,7 +193,7 @@ const LifeStyle = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={_energy} />
+              <VerticalBar data={_energy} _label=" Kg CO2/year"/>
               <div>
                 <span>Tips</span>
               </div>
@@ -250,7 +250,7 @@ const LifeStyle = () => {
               </Button>
               <Stack direction="row" spacing={1}>
                 <Chip
-                  label={`${_vehicle + " CO2 per year"}`}
+                  label={`${_vehicle + " CO2"}`}
                   variant="outlined"
                 />
               </Stack>
@@ -259,7 +259,7 @@ const LifeStyle = () => {
               </Button>
             </div>
             <div>
-              <VerticalBar data={_vehicle} />
+              <VerticalBar data={_vehicle} _label="Kg CO2/day" />
               <div>
                 <span>Tips</span>
               </div>
