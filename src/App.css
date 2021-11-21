@@ -1,0 +1,25 @@
+.sidebar-bar {
+  background: #093028; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.lifestyle-main-container {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.nutrition-main-container {
+  border: 1px solid green;
+  border-radius: 12px;
+  padding: 10px;
+}

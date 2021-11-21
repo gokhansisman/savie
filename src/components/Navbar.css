@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+}
+
+main {
+  margin: 16px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background: #093028; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: white;
+  font-family: Helvetica;
+  font-weight: 300;
+}
+.navbar a {
+  color: white;
+  font-family: Helvetica;
+  font-weight: 300;
+}
+.navbar__title {
+  margin-right: auto;
+  font-size: 150%;
+  padding: 12px 16px;
+}
+
+.navbar__item {
+  padding: 16px 16px;
+  cursor: pointer;
+  vertical-align: middle;
+}
